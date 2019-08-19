@@ -1,0 +1,17 @@
+contract TestCounter {
+  let filePath : String = "[redacted]" 
+  let contractName: String = "Counter"   
+  let TestSuiteName : String  = "CounterTests"
+}
+
+TestCounter :: (any) {
+
+  public func test_coverage() {
+	   let c : Counter = Counter()
+	   c.increment()
+     let x : Int = c.getValue()
+     c.printMsg(true)
+  }   
+
+}
+

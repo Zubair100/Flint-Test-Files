@@ -1,0 +1,53 @@
+contract TestCounter {
+  let filePath : String = "/Users/Zubair/Documents/Imperial/Thesis/Code/flint/counter.flint"
+  let contractName: String = "Counter"   
+  let TestSuiteName : String  = "Counter Tests"
+}
+
+TestCounter :: (any) {
+
+  public func test_increment_by_one() {
+      let owner : Address = newAddress()
+      let c : Counter = Counter(0, owner) 
+      c.increment()
+      let val : Int = c.getValue()
+      assertEqual(1, val)
+  }   
+
+  public func test_event_fires() {
+      let owner : Address = newAddress()
+      let c : Counter = Counter(0, owner)
+      c.increment()
+      assertEventFired(c.CounterVal, 1)
+  }   
+
+  public func test_only_owner_can_reset() {
+      let owner : Address = newAddress()
+      let not_owner : Address = newAddress()
+      let c : Counter = Counter(0, owner)
+
+      setAddr(not_owner)
+      assertCallerUnsat(c.reset)
+      unsetAddr()
+  }   
+
+
+  public func test_cant_call_increment_in_event_ready_state() {
+      let owner : Address = newAddress()
+      let c : Counter = Counter(0, owner)
+      
+      setAddr(owner)
+      c.eventReady()
+      unsetAddr()
+
+      assertCantCallInThisState(c.increment)
+
+  }   
+
+  public func test_exception_is_thrown() {
+      let owner : Address = newAddress()
+      let c : Counter = Counter(0, owner)
+      assertWillThrow(c.willThrow)
+  }   
+}
+

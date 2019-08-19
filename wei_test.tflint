@@ -1,0 +1,17 @@
+contract TestCounter {
+  let filePath : String = "/Users/Zubair/Documents/Imperial/Thesis/Code/flint/wei_test.flint"
+  let contractName: String = "SendMoney"   
+  let TestSuiteName : String  = "<Add a name for this test suite>"
+}
+
+TestCounter :: (any) {
+
+  public func test_event_fired() {
+      let s : SendMoney = SendMoney()
+      let x : String = s.getStr()
+      let x1 : String = s.getVal()
+      assertEqual("hi", x);
+  }   
+
+}
+

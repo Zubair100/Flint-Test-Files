@@ -1,0 +1,43 @@
+contract TestCounter {
+  let filePath : String = "/Users/Zubair/Documents/Imperial/Thesis/Code/flint/counter.flint"
+  let contractName: String = "Counter"   
+  let TestSuiteName : String  = "Counter Tests"
+}
+
+TestCounter :: (any) {
+
+  public func test_increment_by_one() {
+      let owner : Address = newAddress()
+      let c : Counter = Counter(0, owner) 
+      c.increment()
+      let val : Int = c.getValue()
+      assertEqual(1, val)
+  }   
+
+  public func test_increment_by_one() {
+      let owner : Address = newAddress()
+      let c : Counter = Counter(0, owner) 
+      c.increment()
+      let val : Int = c.getValue()
+      assertEqual(1, val)
+  }   
+
+  public func test_increment_by_one() {
+      let owner : Address = newAddress()
+      let c : Counter = Counter(0, owner) 
+      c.increment()
+      let val : Int = c.getValue()
+      assertEqual(1, val)
+  }   
+
+  public func test_increment_by_one() {
+      let owner : Address = newAddress()
+      let c : Counter = Counter(0, owner) 
+      c.increment()
+      let val : Int = c.getValue()
+      assertEqual(1, val)
+  }   
+
+
+}
+

@@ -1,0 +1,27 @@
+contract TestCounter {
+  let filePath : String = "/Users/Zubair/Documents/Imperial/Thesis/Code/flint/wei_test.flint"
+  let contractName: String = "SendMoney"   
+  let TestSuiteName : String  = "<Add a name for this test suite>"
+}
+
+TestCounter :: (any) {
+
+  public func test_event_fired() {
+      let s : SendMoney = SendMoney()
+      let c : Int = "hi"
+      let v : Int = 1
+      v = 2
+      let c : Int = 1
+      randomFunc()
+      s.rand()
+      s.weiAmt
+      s.sendMoney(100, 1, 1)
+      s.sendMoney(_wei: 100, e, 1)
+      s.sendMoney1(_wei: 0, 1)
+      s.sendMoney2(_wei: 0)
+      s.sendMoney3(0, 1)
+      assertEqual(1, 1)
+  }   
+
+}
+

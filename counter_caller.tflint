@@ -1,0 +1,32 @@
+contract TestCounter {
+  let filePath : String = "/Users/Zubair/Documents/Imperial/Thesis/Code/flint/counter.flint"
+  let contractName: String = "Counter"   
+  let TestSuiteName : String  = "<Add a name for this test suite>"
+}
+
+TestCounter :: (any) {
+
+  public func test_any_can_call_increment() {
+      let owner : Address = newAddress()
+      let not_owner : Address = newAddress()
+      let c : Counter = Counter(owner)
+   
+      setAddr(not_owner)
+      assertCallerSat(c.increment)
+      unsetAddr()
+
+  }   
+
+  public func test_only_owner_can_call_reset() {
+      let owner : Address = newAddress()
+      let not_owner : Address = newAddress()
+      let c : Counter = Counter(owner)
+   
+      setAddr(not_owner)
+      assertCallerUnsat(c.reset)
+      unsetAddr()
+
+  }   
+
+}
+
